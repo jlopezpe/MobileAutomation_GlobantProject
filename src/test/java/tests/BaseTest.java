@@ -3,16 +3,16 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
+import screens.FormsScreen;
 import screens.HomeScreen;
+import screens.LoginScreen;
+import screens.WebviewScreen;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.MalformedInputException;
 import java.util.Properties;
-
-import static io.appium.java_client.internal.CapabilityHelpers.getCapability;
 //import static sun.awt.FontConfiguration.loadProperties;
 
 public class BaseTest {
@@ -62,5 +62,19 @@ public class BaseTest {
     public HomeScreen getHomescreen(){
         return new HomeScreen(driver);
     }
+
+    public WebviewScreen getWebviewScreen(){
+        return new WebviewScreen(driver);
+    }
+
+    public LoginScreen getLoginScreen(){
+        return new LoginScreen(driver);
+    }
+
+    public FormsScreen getFormScreen(){
+        return new FormsScreen(driver);
+    }
+
+
 
 }
