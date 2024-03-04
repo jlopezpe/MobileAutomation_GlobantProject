@@ -74,7 +74,9 @@ public class BaseScreen {
 
     }
 
-    public void waitElementVisibility(AndroidDriver driver, WebElement element){
+    public WebElement waitElementVisibility(AndroidDriver driver, WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        return (WebElement) wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 }
