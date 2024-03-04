@@ -3,10 +3,7 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
-import screens.FormsScreen;
-import screens.HomeScreen;
-import screens.LoginScreen;
-import screens.WebviewScreen;
+import screens.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -74,6 +71,17 @@ public class BaseTest {
     public FormsScreen getFormScreen(){
         return new FormsScreen(driver);
     }
+
+    public SwipeScreen getSwipeScreen(){
+        return new SwipeScreen(driver);
+    }
+
+    public DragScreen getDragScreen(){
+        return new DragScreen(driver);
+    }
+
+
+
 
 
 

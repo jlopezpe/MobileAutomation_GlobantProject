@@ -27,6 +27,20 @@ public class BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Forms\"]")
     private WebElement forms_button;
 
+    @AndroidFindBy(accessibility = "Swipe")
+    private WebElement swipe_button;
+
+    @AndroidFindBy(accessibility = "Drag")
+    private WebElement drag_button;
+
+    public WebElement getDrag_button() {
+        return drag_button;
+    }
+
+    public WebElement getSwipe_button() {
+        return swipe_button;
+    }
+
     public WebElement getForms_button() {
         return forms_button;
     }

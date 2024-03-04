@@ -3,9 +3,7 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import screens.HomeScreen;
-import screens.LoginScreen;
-import screens.WebviewScreen;
+import screens.*;
 
 public class Navigate_ButtonTest extends BaseTest{
 
@@ -24,9 +22,17 @@ public class Navigate_ButtonTest extends BaseTest{
         loginscreen.titleDisplayed();
         loginscreen.clickbutton((loginscreen.getForms_button()));
 
-        FormComponentsScreen formcomponents= getFormComponents();
+        FormsScreen formcomponents= getFormScreen();
         formcomponents.titleDisplayed();
         formcomponents.clickbutton((formcomponents.getSwipe_button()));
+
+        SwipeScreen swipescreen= getSwipeScreen();
+        swipescreen.titleDisplayed();
+        swipescreen.clickbutton((swipescreen.getDrag_button()));
+
+        DragScreen dragscreen= getDragScreen();
+        dragscreen.titleDisplayed();
+
 
     }
 }
