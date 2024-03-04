@@ -8,5 +8,11 @@
         </classes>
     </test>
 
+    <test name="Sign Up">
+        <classes>
+            <class name="tests.SignUpTest"/>
+        </classes>
+    </test>
+
 
 </suite>
