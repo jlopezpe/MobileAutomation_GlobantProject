@@ -3,6 +3,7 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.testng.annotations.BeforeMethod;
+import screens.HomeScreen;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.nio.charset.MalformedInputException;
 import java.util.Properties;
 
 import static io.appium.java_client.internal.CapabilityHelpers.getCapability;
-import static sun.awt.FontConfiguration.loadProperties;
+//import static sun.awt.FontConfiguration.loadProperties;
 
 public class BaseTest {
 
@@ -56,6 +57,10 @@ public class BaseTest {
 
     public static String getCapability(String variable){
         return properties.getProperty(variable);
+    }
+
+    public HomeScreen getHomescreen(){
+        return new HomeScreen(driver);
     }
 
 }
