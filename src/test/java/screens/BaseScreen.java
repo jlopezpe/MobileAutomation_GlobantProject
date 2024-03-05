@@ -33,8 +33,14 @@ public class BaseScreen {
     @AndroidFindBy(accessibility = "Drag")
     private WebElement drag_button;
 
+    @AndroidFindBy(className = "android.widget.Button")
+    private WebElement AlertOk_button;
     public WebElement getDrag_button() {
         return drag_button;
+    }
+
+    public WebElement getGetAlertOk_button() {
+        return AlertOk_button;
     }
 
     public WebElement getSwipe_button() {

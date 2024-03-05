@@ -2,15 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MOBILE">
 
-    <test name="Navigate-button">
-        <classes>
-            <class name="tests.Navigate_ButtonTest"/>
-        </classes>
-    </test>
 
-    <test name="Sign Up">
+
+    <test name="Login">
         <classes>
-            <class name="tests.SignUpTest"/>
+            <class name="tests.LoginTest"/>
         </classes>
     </test>
 
