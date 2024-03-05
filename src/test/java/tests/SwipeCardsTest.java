@@ -20,10 +20,12 @@ public class SwipeCardsTest extends BaseTest{
 
         SwipeScreen swipescreen= getSwipeScreen();
         swipescreen.titleDisplayed();
-        swipescreen.swipeCardLeft();
+        //swipescreen.swipeCardLeft();
         //swipescreen.swipeRight();
-        //Assert.assertTrue((swipescreen.getCardSize()[0].height< swipescreen.getCardSize()[1].height));
-        //Assert.assertTrue((swipescreen.getDotSize()[0].height< swipescreen.getDotSize()[0].height));
+
+
+        swipescreen.swipeUp();
+        swipescreen.FoundMe();
 
 
     }

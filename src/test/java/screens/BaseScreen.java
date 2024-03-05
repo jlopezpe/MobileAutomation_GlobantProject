@@ -140,8 +140,33 @@ public class BaseScreen {
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
         Sequence swipe = new Sequence(finger, 1);
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.RIGHT.asArg()));
         swipe.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY));
+        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.RIGHT.asArg()));
+
+        // Usar Arrays.asList() para ejecutar la acción de swipe
+        driver.perform(Arrays.asList(swipe));
+    }
+
+
+    public void swipeUpInsideElement(WebElement element) {
+        // Obtener las dimensiones y la posición del elemento
+        int elementWidth = element.getSize().getWidth();
+        int elementHeight = element.getSize().getHeight();
+        Point elementLocation = element.getLocation();
+
+        // Calcular puntos de inicio y final para el swipe dentro del elemento
+        int startX = elementLocation.getX() + (elementWidth / 2); // Swipe en el centro horizontal del elemento
+        int startY = elementLocation.getY() + (int) (elementHeight * 0.99);
+        int endX = startX;
+        int endY = elementLocation.getY() + (int) (elementHeight * 0.05);
+
+        // Realizar el swipe
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY));
+        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+        swipe.addAction(finger.createPointerMove(Duration.ofMillis(80), PointerInput.Origin.viewport(), endX, endY));
         swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         // Usar Arrays.asList() para ejecutar la acción de swipe
