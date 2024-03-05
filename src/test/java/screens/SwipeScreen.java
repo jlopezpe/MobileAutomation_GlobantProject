@@ -35,7 +35,7 @@ public class SwipeScreen extends BaseScreen{
     private WebElement swipescreen_title;
     private final String swipescreen_titletext="Swipe horizontal";
 
-    @AndroidFindBy(xpath = "(//android.view.ViewGroup[@content-desc=\"card\"])[1]")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@resource-id=\"__CAROUSEL_ITEM_1_READY__\"]")
     private WebElement fullyOpenSource_card;
 
     public WebElement getGreatCommunity_card() {
@@ -72,8 +72,11 @@ public class SwipeScreen extends BaseScreen{
         Assert.assertTrue(getFullyOpenSource_card().isDisplayed());
         swipeLeftInsideElement(this.fullyOpenSource_card);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera hasta un máximo de 10 segundos
-        waitElementVisibility(driver,this.getGreatCommunity_card());
+        //waitElementVisibility(driver,this.getGreatCommunity_card());
         Assert.assertTrue(getGreatCommunity_card().isDisplayed());
+        swipeLeftInsideElement(this.fullyOpenSource_card);
+        swipeLeftInsideElement(this.fullyOpenSource_card);
+        swipeLeftInsideElement(this.fullyOpenSource_card);
         //swipeLeftInsideElement(this.fullyOpenSource_card);
         Assert.assertFalse(getFullyOpenSource_card().isDisplayed());
 
@@ -82,25 +85,7 @@ public class SwipeScreen extends BaseScreen{
 
 
     }
-
-    public Dimension getElementSize(WebElement element){
-        return element.getSize();
-    }
-
-    public Dimension[] getCardSize(){
-        return new Dimension[]{
-                getElementSize(fullyOpenSource_card),
-                getElementSize(greatCommunity_card)
-        };
-    }
-
-    public Dimension[] getDotSize(){
-
-        return new Dimension[]{
-                getElementSize(dot_fullyOpenSource_card),
-                getElementSize(dot_greatCommunity_card)
-        };
-    }
+    
 
     public void swipeRight(){
         waitElementVisibility(driver,this.greatCommunity_card);
