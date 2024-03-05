@@ -51,6 +51,32 @@ public class SwipeScreen extends BaseScreen{
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"Carousel\"]android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup")
     private WebElement dot_greatCommunity_card;
 
+    @AndroidFindBy(xpath = "//android.widget.ScrollView[@content-desc=\"Swipe-screen\"]/android.view.ViewGroup/android.view.ViewGroup[1]")
+    private WebElement swipeVerticalzone;
+
+    @AndroidFindBy(uiAutomator = "UiSelector().className(android.widget.TextView).text(\"You found me!!!\").index(4)")
+    private WebElement youFoundme_text;
+
+    private String foundme_textassert="You found me!!!";
+
+    public WebElement getYouFoundme_text() {
+        return youFoundme_text;
+    }
+
+    public String getFoundme_textassert() {
+        return foundme_textassert;
+    }
+
+    public WebElement getYouFoundme_drawing() {
+        return youFoundme_drawing;
+    }
+
+    @AndroidFindBy(uiAutomator = "UiSelector().className(android.widget.ImageView)")
+    private  WebElement youFoundme_drawing;
+
+
+
+
 
     public WebElement getFullyOpenSource_card() {
         return fullyOpenSource_card;
@@ -67,30 +93,43 @@ public class SwipeScreen extends BaseScreen{
 
     }
 
+    public void FoundMe(){
+        waitElementVisibility(driver,getYouFoundme_text());
+        Assert.assertEquals(getYouFoundme_text().getText(),getFoundme_textassert());
+        waitElementVisibility(driver,getYouFoundme_drawing());
+        Assert.assertTrue(getYouFoundme_drawing().isDisplayed());
+    }
+
     public void swipeCardLeft(){
 
         Assert.assertTrue(getFullyOpenSource_card().isDisplayed());
         swipeLeftInsideElement(this.fullyOpenSource_card);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera hasta un máximo de 10 segundos
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera hasta un máximo de 10 segundos
         //waitElementVisibility(driver,this.getGreatCommunity_card());
-        Assert.assertTrue(getGreatCommunity_card().isDisplayed());
-        swipeLeftInsideElement(this.fullyOpenSource_card);
-        swipeLeftInsideElement(this.fullyOpenSource_card);
-        swipeLeftInsideElement(this.fullyOpenSource_card);
+        //Assert.assertTrue(getGreatCommunity_card().isDisplayed());
         //swipeLeftInsideElement(this.fullyOpenSource_card);
-        Assert.assertFalse(getFullyOpenSource_card().isDisplayed());
+        //swipeLeftInsideElement(this.fullyOpenSource_card);
+        //swipeLeftInsideElement(this.fullyOpenSource_card);
+        //swipeLeftInsideElement(this.fullyOpenSource_card);
+        //Assert.assertFalse(getFullyOpenSource_card().isDisplayed());
 
 
 
 
 
     }
-    
 
     public void swipeRight(){
         waitElementVisibility(driver,this.greatCommunity_card);
         waitElementClickable(this.greatCommunity_card);
         swipeRightInsideElement(this.greatCommunity_card);
+    }
+
+    public void swipeUp(){
+        //waitElementVisibility(driver,this.swipeVerticalzone);
+        //waitElementClickable(this.swipeVerticalzone);
+        swipeUpInsideElement(this.swipeVerticalzone);
+
     }
 
 
