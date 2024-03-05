@@ -30,6 +30,12 @@ public class LoginScreen extends BaseScreen{
     @AndroidFindBy(accessibility = "input-repeat-password")
     private WebElement repeatPassword_field;
 
+    @AndroidFindBy(uiAutomator = "UiSelector().className(android.widget.TextView).text(\"Login\").index(0)")
+    private WebElement loginButton_writefields;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"button-LOGIN\"]/android.view.ViewGroup")
+    private WebElement loginButton_action;
+
     private static final String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final SecureRandom random = new SecureRandom();
 
@@ -39,7 +45,25 @@ public class LoginScreen extends BaseScreen{
     @AndroidFindBy(id = "android:id/alertTitle")
     private WebElement signed_upAlert;
 
+    @AndroidFindBy(id = "android:id/message")
+    private WebElement loginSuccess_title;
+
     private final String alert_message="Signed Up!";
+
+    private final String login_message="You are logged in!";
+
+    public WebElement getLoginButton_action() {
+        return loginButton_action;
+    }
+
+    public WebElement getLoginButton_writefields() {
+        return loginButton_writefields;
+    }
+
+    public WebElement getLoginSuccess_title() {
+        return loginSuccess_title;
+    }
+
 
     public WebElement getSigned_upAlert() {
         return signed_upAlert;
@@ -95,4 +119,14 @@ public class LoginScreen extends BaseScreen{
 
         Assert.assertEquals(this.getSigned_upAlert().getText(),alert_message);
     }
+
+    public void verifyLogin(){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement loggedAlert = wait.until(ExpectedConditions.visibilityOf(this.getLoginSuccess_title()));
+
+        Assert.assertEquals(this.getLoginSuccess_title().getText(),login_message);
+    }
+
+
 }
