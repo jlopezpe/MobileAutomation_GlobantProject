@@ -92,7 +92,7 @@ public class LoginScreen extends BaseScreen{
     public void write_SignUp_info(){
 
         //using globant brand only for academy goals
-        String randomEmail = "MobileTesting+" + UUID.randomUUID().toString().substring(0, 8)+ "@globant.com";
+        String randomEmail = "MobileTesting" + UUID.randomUUID().toString().substring(0, 8)+ "@globant.com";
         email_field.sendKeys(randomEmail);
 
         String password_created= password_generator(10);

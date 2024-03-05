@@ -2,13 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MOBILE">
 
-
-
-    <test name="Login">
+    <test name="SwipeCards">
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.SwipeCardsTest"/>
         </classes>
     </test>
-
 
 </suite>
