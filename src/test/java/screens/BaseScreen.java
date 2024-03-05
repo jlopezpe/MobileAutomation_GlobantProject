@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
@@ -172,5 +173,18 @@ public class BaseScreen {
         // Usar Arrays.asList() para ejecutar la acción de swipe
         driver.perform(Arrays.asList(swipe));
     }
+
+    public boolean isElementNotOnScreen(WebElement element) {
+        Point element_location = element.getLocation();
+        Dimension element_size = element.getSize();
+        Dimension screenSize = driver.manage().window().getSize();
+
+        boolean isBeyondWidth = element_location.getX() + element_size.getWidth() < 0 || element_location.getX() > screenSize.getWidth();
+        boolean isBeyondHeight = element_location.getY() + element_size.getHeight() < 0 || element_location.getY() > screenSize.getHeight();
+
+        return isBeyondWidth || isBeyondHeight;
+    }
+
+
 
 }

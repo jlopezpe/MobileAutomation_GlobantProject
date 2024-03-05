@@ -104,25 +104,18 @@ public class SwipeScreen extends BaseScreen{
 
         Assert.assertTrue(getFullyOpenSource_card().isDisplayed());
         swipeLeftInsideElement(this.fullyOpenSource_card);
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera hasta un máximo de 10 segundos
-        //waitElementVisibility(driver,this.getGreatCommunity_card());
-        //Assert.assertTrue(getGreatCommunity_card().isDisplayed());
-        //swipeLeftInsideElement(this.fullyOpenSource_card);
-        //swipeLeftInsideElement(this.fullyOpenSource_card);
-        //swipeLeftInsideElement(this.fullyOpenSource_card);
-        //swipeLeftInsideElement(this.fullyOpenSource_card);
-        //Assert.assertFalse(getFullyOpenSource_card().isDisplayed());
-
-
-
-
-
+        // use this method because isDisplayed() method was always true even if the card was swipped
+        isElementNotOnScreen(getFullyOpenSource_card());
+        Assert.assertFalse(isElementNotOnScreen(this.fullyOpenSource_card));
     }
 
     public void swipeRight(){
         waitElementVisibility(driver,this.greatCommunity_card);
         waitElementClickable(this.greatCommunity_card);
         swipeRightInsideElement(this.greatCommunity_card);
+        // use this method because isDisplayed() method was always true even if the card was swipped
+        isElementNotOnScreen(getGreatCommunity_card());
+        Assert.assertFalse(isElementNotOnScreen(this.greatCommunity_card));
     }
 
     public void swipeUp(){
